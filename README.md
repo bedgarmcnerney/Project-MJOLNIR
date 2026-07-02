@@ -34,6 +34,7 @@ Ideas I'm Thinking About:
 - Voice changer and Assistant
 - Exoskeleton-like feautures, increasing strength and speed
 - Totally not a flamethrower (just kidding)
+- Adrenaline Shock System: Use combination of TENS unit, 
 
 
 
