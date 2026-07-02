@@ -1,5 +1,5 @@
 # Project-MJOLNIR
-This project aims to recreate Master Chief's iconic suit of high tech armor to the best of my real world capabilities.
+This project aims to recreate Master Chief's iconic suit of high tech armor to the best of my real world capabilities as a college student on a budget.
 
 The idea started out as a complicated Halloween Costume, and has upgraded to a full-fledged embedded systems project, utilizing a blend of hardware design techniques with 3D printing and prototyping, and computer and microcontroller programming using C and python.
 
@@ -28,5 +28,14 @@ The idea started out as a complicated Halloween Costume, and has upgraded to a f
   - Forearm mounted compressed air cannon
   - Laser Sight
   - Solenoid activated using L-**HEPHAESTUS GAUNLET**
-      
+
+Ideas I'm Thinking About:
+- Electroplating portions of the armor to add durability and premium feel
+- Voice changer and Assistant
+- Exoskeleton-like feautures, increasing strength and speed
+- Totally not a flamethrower (just kidding)
+
+
+
+
 This is a working document that is updated regularly with my progress
