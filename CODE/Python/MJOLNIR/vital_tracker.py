@@ -77,4 +77,24 @@ def draw_local_wrist_monitor(main_screen, vitals_surface):
     pygame.draw.rect(main_screen, HUD_COLOR, (1230, 500, 660, 500), 3)
     main_screen.blit(scaled_vitals, (1240, 510))
 
+def initialize_vital_monitor():
+    import sys
+
+    sys.path.append("/home/master_chief/LCD_Module_RPI_code/RaspberryPi/python")
+    from lib
+    import LCD_2inch
+
+    disp = LCD_2inch.LCD_2inch()
+    disp.Init()
+    disp.clear()
+    disp.bl_DutyCycle(50)
+
+    return disp
+
+def draw_pi_wrist_monitor(main_screen, vitals_surface):
+    scaled_vitals = pygame.transform.scale(vitals_surface, (640, 480))
+
+    pygame.draw.rect(main_screen, HUD_COLOR, (1230, 500, 660, 500), 3)
+    main_screen.blit(scaled_vitals, (1240, 510))
+
 
