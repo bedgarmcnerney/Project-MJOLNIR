@@ -1,0 +1,19 @@
+#ifndef HARDWARE_H
+#define HARDWARE_H
+
+#define GESTURE_ENABLE_PIN 7
+
+#define TRIG_PIN 9
+#define ECHO_PIN 10
+#define ULTRASONIC_ENABLE_PIN 4
+
+#define DHTPIN 2
+
+#define PULSE_OFFLINE 0
+#define PULSE_NO_FINGER 0
+#define PULSE_CALIBRATING 1
+
+#define BODY_TEMP_OFFLINE 0
+#define BODY_TEMP_CALIBRATING 1
+
+#endif
