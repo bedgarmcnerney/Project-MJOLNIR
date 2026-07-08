@@ -2,6 +2,8 @@ import pygame
 from config import HUD_COLOR
 from serial_data import hud_data
 from PIL import Image
+from config import LOCAL_TEST
+
 
 
 # def load_assets():
@@ -12,8 +14,13 @@ from PIL import Image
 #               "oxygen": pygame.image.load("Images/wrist_icons/oxygen.png").convert_alpha()
 #               }
 #     return assets
+
+
 def load_assets():
+    font = load_fonts()
     assets = {"bkg": pygame.image.load("Images/wrist_icons/wrist_bkg.png").convert_alpha(),
+              "cal": font["calibrating_font"].render("CAL", True, (66, 245, 129)),
+              "err": font["error_font"].render("ERR", True, (255,0,0))
               }
     return assets
 def load_fonts():
@@ -24,16 +31,14 @@ def load_fonts():
     }
     return fonts
 
-def choose_status(data, font):
-    calibrating = font["calibrating_font"].render("CAL", True, (66, 245, 129))
-    error = font["error_font"].render("ERR", True, (255,0,0))
+def choose_status(data, font, assets):
 
     if int(float(data)) == 0:
-        return error
+        return assets["err"]
     elif int(float(data)) == 1 or int(float(data)) == 2:
-        return calibrating
+        return assets["cal"]
     else:
-        return font["vitals_font"].render(data, True, HUD_COLOR)
+        return font["vitals_font"].render(str(data), True, HUD_COLOR)
 
 
 def draw_vitals(screen, assets, fonts):
@@ -41,12 +46,12 @@ def draw_vitals(screen, assets, fonts):
     bkg = assets["bkg"]
     screen.blit(bkg, (0, 0))
 
-    hr = choose_status(hud_data['HR'], fonts)
-    suit_temp = choose_status(hud_data['SUIT_TEMP'], fonts)
-    suit_hum = choose_status(hud_data['SUIT_HUM'], fonts)
-    oxygen = choose_status(hud_data['OXYGEN'], fonts)
-    body_temp = choose_status(hud_data['BODY_TEMP'], fonts)
-    battery = choose_status(hud_data['BATTERY'], fonts)
+    hr = choose_status(hud_data['HR'], fonts,assets)
+    suit_temp = choose_status(hud_data['SUIT_TEMP'], fonts,assets)
+    suit_hum = choose_status(hud_data['SUIT_HUM'], fonts,assets)
+    oxygen = choose_status(hud_data['OXYGEN'], fonts,assets)
+    body_temp = choose_status(hud_data['BODY_TEMP'], fonts,assets)
+    battery = choose_status(hud_data['BATTERY'], fonts,assets)
 
 
 
@@ -81,8 +86,7 @@ def initialize_vital_monitor():
     import sys
 
     sys.path.append("/home/master_chief/LCD_Module_RPI_code/RaspberryPi/python")
-    from lib
-    import LCD_2inch
+    from lib import LCD_2inch
 
     disp = LCD_2inch.LCD_2inch()
     disp.Init()
@@ -90,6 +94,7 @@ def initialize_vital_monitor():
     disp.bl_DutyCycle(50)
 
     return disp
+
 
 def draw_pi_wrist_monitor(main_screen, vitals_surface):
     scaled_vitals = pygame.transform.scale(vitals_surface, (640, 480))

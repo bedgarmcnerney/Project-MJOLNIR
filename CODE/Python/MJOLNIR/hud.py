@@ -16,23 +16,23 @@ def choose_status(img_enabled,img_disabled,status):
 
 def load_hud_assets():
     assets = {"bg": pygame.image.load("Images/hud_icons/HUD1.jpg").convert_alpha(),
-              "battery": pygame.image.load("Images/hud_icons/resized_battery.png").convert_alpha(),
+              "battery": pygame.image.load("Images/hud_icons/battery.png").convert_alpha(),
 
-              "gauntlet_enabled": pygame.image.load("Images/hud_icons/resized_gauntlet.png").convert_alpha(),  # Physical switch is on
+              "gauntlet_enabled": pygame.image.load("Images/hud_icons/gauntlet.png").convert_alpha(),  # Physical switch is on
               "gauntlet_disabled": pygame.image.load("Images/hud_icons/gauntlet_disabled.png").convert_alpha(),  # Switch is off
               "gesture_reading" : pygame.image.load("Images/hud_icons/gauntlet_disabled.png").convert_alpha(),  # Taking accelerometer reading
 
-              "aircannon_enabled": pygame.image.load("Images/hud_icons/resized_aircannon.png").convert_alpha(),
+              "aircannon_enabled": pygame.image.load("Images/hud_icons/aircannon.png").convert_alpha(),
               "aircannon_disabled" : pygame.image.load("Images/hud_icons/aircannon_disabled.png").convert_alpha(),
 
               # TODO: replace with RearGuard icons
-              "rearguard_enabled": pygame.image.load("Images/hud_icons/resized_aircannon.png").convert_alpha(),  # Connected
+              "rearguard_enabled": pygame.image.load("Images/hud_icons/aircannon.png").convert_alpha(),  # Connected
               "rearguard_disabled": pygame.image.load("Images/hud_icons/aircannon_disabled.png").convert_alpha(),  # Not connected
               "rearguard_armed": pygame.image.load("Images/hud_icons/aircannon_disabled.png").convert_alpha(),  # Reading Threats
 
 
 
-              #"compass" : pygame.image.load("Images/hud_icons/resized_compass.png").convert_alpha()
+              #"compass" : pygame.image.load("Images/hud_icons/compass.png").convert_alpha()
               }
     return assets
 

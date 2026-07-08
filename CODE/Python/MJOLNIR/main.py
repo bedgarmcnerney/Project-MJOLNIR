@@ -19,6 +19,7 @@ from vital_tracker import (
     load_fonts as load_vital_fonts,
     draw_vitals,
     draw_local_wrist_monitor,
+    initialize_vital_monitor,
     draw_pi_wrist_monitor
 )
 
@@ -45,9 +46,11 @@ def main():
 
     vitals_surface = pygame.Surface((VITAL_MONITOR_WIDTH, VITAL_MONITOR_HEIGHT))
     screen_index = 0
+    vital_display = None
 
     if not LOCAL_TEST:
         vital_display = initialize_vital_monitor()
+
     while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -80,8 +83,8 @@ def main():
 
         if LOCAL_TEST:
             draw_local_wrist_monitor(screen, vitals_surface)
-        #else:
-         #   draw_pi_wrist_monitor(screen, vitals_surface)
+        else:
+           draw_pi_wrist_monitor(vital_display, vitals_surface)
         pygame.display.flip()
         clock.tick(60)
 
