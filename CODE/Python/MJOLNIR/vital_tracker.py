@@ -96,10 +96,14 @@ def initialize_vital_monitor():
     return disp
 
 
-def draw_pi_wrist_monitor(main_screen, vitals_surface):
-    scaled_vitals = pygame.transform.scale(vitals_surface, (640, 480))
+def draw_pi_wrist_monitor(disp, vitals_surface):
+    image = convert_to_image(vitals_surface)
 
-    pygame.draw.rect(main_screen, HUD_COLOR, (1230, 500, 660, 500), 3)
-    main_screen.blit(scaled_vitals, (1240, 510))
+    # Your vitals surface is 320x240.
+    # The Waveshare 2 inch LCD is physically 240x320.
+    # Rotate so it fills the LCD in portrait orientation.
+    image = image.rotate(90, expand=True)
+
+    disp.ShowImage(image)
 
 
