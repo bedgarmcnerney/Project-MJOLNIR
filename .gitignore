@@ -1,0 +1,16 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# PyCharm project settings
+.idea/
+
+# Logs/system files
+*.log
+.DS_Store
+Thumbs.db
