@@ -18,7 +18,7 @@ The idea started out as a complicated Halloween Costume, and has upgraded to a f
   - **HEPHAESTUS GAUNLETS**:
     - MAX30205 and MAX30102 placed on the pointer and middle finger for pulse, body temperature, and
       blood oxygen level measurements.
-    - MPU6050 accelrometer for HUD display swithching macros
+    - MPU6050 accelerometer for HUD display swithching macros
     - HC-SR04 ultrasonic sensor for **RearGuard** threat detector
     - Metal contact pads for additional suit controls and macros
   - DHT11 suit temperature and humidity sensor
@@ -37,6 +37,9 @@ Ideas I'm Thinking About:
 - Adrenaline Shock System: Use combination of TENS unit, 
 
 
-
+**Zack's Ideas:**  
+  - Speed measurement
+  - Air quality sensor
+  - 
 
 This is a working document that is updated regularly with my progress
