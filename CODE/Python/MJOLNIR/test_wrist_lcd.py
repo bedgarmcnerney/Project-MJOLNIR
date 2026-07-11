@@ -14,7 +14,7 @@ disp.bl_DutyCycle(50)
 
 image = Image.open("Images/wrist_icons/wrist_bkg.png").convert("RGB")
 
-# Your image is 320x240, but the LCD is usually 240x320.
+# Your image is 320x240, but the lcd is usually 240x320.
 # Rotate it so it fits the screen.
 image = image.rotate(90, expand=True)
 
