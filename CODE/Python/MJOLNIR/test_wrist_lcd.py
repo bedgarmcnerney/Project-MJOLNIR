@@ -1,10 +1,27 @@
-from gpiozero import Button
-from signal import pause
+from picamera2 import Picamera2
+import cv2
 
-def on_button_press():
-    print("Button pressed!")
+# Initialize the camera
+picam2 = Picamera2()
 
-button = Button(17)  # Use the correct GPIO pin number
-button.when_pressed = on_button_press
+config = picam2.create_preview_configuration(
+    main={"size": (1280, 720), "format": "RGB888"}
+)
 
-pause()  # Keep the program running
+picam2.configure(config)
+picam2.start()
+
+print("Camera started.")
+print("Press 'q' to quit.")
+
+while True:
+    frame = picam2.capture_array()
+
+    cv2.imshow("Pi Camera 3 NoIR", frame)
+
+    key = cv2.waitKey(1) & 0xFF
+    if key == ord('q'):
+        break
+
+picam2.stop()
+cv2.destroyAllWindows()

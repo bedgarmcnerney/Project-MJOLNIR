@@ -27,7 +27,7 @@ from vital_tracker import (
 
 def main():
     pygame.init()
-    cap = setup_camera(0)
+    cap = setup_camera()
 
     if LOCAL_TEST:
         screen = pygame.display.set_mode((HUD_WIDTH, HUD_HEIGHT))

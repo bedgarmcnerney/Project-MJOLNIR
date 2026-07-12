@@ -1,10 +1,13 @@
 import pygame
 import datetime
 import cv2
+from picamera2 import Picamera2
 
 from config import HUD_COLOR, HUD_WIDTH, HUD_HEIGHT
 from serial_data import hud_data
 
+
+## Utitlity ##
 # Returns ON OR OFF image
 def choose_status(img_enabled,img_disabled,status):
     try:
@@ -76,6 +79,9 @@ def draw_default_hud(screen, assets, fonts):
     # rotated_image = pygame.transform.rotate(compass, current_angle)
     # rotated_rect = rotated_image.get_rect(center=(290,900))
     # screen.blit(rotated_image, rotated_rect)
+
+
+
 def draw_thermal_hud(cap,screen):
     frame = get_camera_frame(cap)
 
@@ -87,28 +93,29 @@ def draw_thermal_hud(cap,screen):
 def draw_blank(screen):
     screen.fill((0,0,0))
 
-def setup_camera(device_index=0):
-    cap = cv2.VideoCapture(device_index)
+def setup_camera():
+    picam2 = Picamera2()
 
-    if not cap.isOpened():
-        print(f"Error: Could not open camera device {device_index}")
+    config = picam2.create_preview_configuration(
+        main={
+            "size": (1920, 1080),
+            "format": "RGB888"
+        }
+    )
+
+    picam2.configure(config)
+    picam2.start()
+
+    return picam2
+
+def get_camera_frame(camera):
+    if camera is None:
         return None
 
-    return cap
+    frame = camera.capture_array()
 
-def get_camera_frame(cap):
-    if cap is None:
-        return None
-
-    ret, frame = cap.read()
-
-    if not ret:
-        print("Error: Failed to read camera frame.")
-        return None
     return frame
 
 def frame_to_pygame_surface(frame):
-    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-    frame = pygame.surfarray.make_surface(frame.swapaxes(0, 1))
-    return frame
+    return pygame.surfarray.make_surface(frame.swapaxes(0, 1))
 
