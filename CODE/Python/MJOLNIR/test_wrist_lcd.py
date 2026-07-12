@@ -1,24 +1,10 @@
-from PIL import Image
-import sys
-import time
+from gpiozero import Button
+from signal import pause
 
-sys.path.append("/home/master_chief/LCD_Module_RPI_code/RaspberryPi/python")
+def on_button_press():
+    print("Button pressed!")
 
-from lib import LCD_2inch
+button = Button(17)  # Use the correct GPIO pin number
+button.when_pressed = on_button_press
 
-disp = LCD_2inch.LCD_2inch()
-
-disp.Init()
-disp.clear()
-disp.bl_DutyCycle(50)
-
-image = Image.open("Images/wrist_icons/wrist_bkg.png").convert("RGB")
-
-# Your image is 320x240, but the lcd is usually 240x320.
-# Rotate it so it fits the screen.
-image = image.rotate(90, expand=True)
-
-disp.ShowImage(image)
-
-while True:
-    time.sleep(1)
+pause()  # Keep the program running
