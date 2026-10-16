@@ -14,3 +14,6 @@ env/
 *.log
 .DS_Store
 Thumbs.db
+
+# Arduino libraries (install via Library Manager, see README)
+CODE/Arduino/libraries
