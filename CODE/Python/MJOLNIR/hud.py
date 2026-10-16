@@ -1,7 +1,7 @@
 import pygame
 import datetime
 import cv2
-from picamera2 import Picamera2
+#from picamera2 import Picamera2
 
 from config import HUD_COLOR, HUD_WIDTH, HUD_HEIGHT
 from serial_data import hud_data
@@ -93,20 +93,20 @@ def draw_thermal_hud(cap,screen):
 def draw_blank(screen):
     screen.fill((0,0,0))
 
-def setup_camera():
-    picam2 = Picamera2()
-
-    config = picam2.create_preview_configuration(
-        main={
-            "size": (1920, 1080),
-            "format": "RGB888"
-        }
-    )
-
-    picam2.configure(config)
-    picam2.start()
-
-    return picam2
+# def setup_camera():
+#     picam2 = Picamera2()
+#
+#     config = picam2.create_preview_configuration(
+#         main={
+#             "size": (1920, 1080),
+#             "format": "RGB888"
+#         }
+#     )
+#
+#     picam2.configure(config)
+#     picam2.start()
+#
+#     return picam2
 
 def get_camera_frame(camera):
     if camera is None:

@@ -7,7 +7,7 @@ from hud import (
     load_hud_assets,
     load_hud_fonts,
     draw_default_hud,
-    setup_camera,
+    #setup_camera,
     get_camera_frame,
     frame_to_pygame_surface,
     draw_thermal_hud,
@@ -27,7 +27,7 @@ from vital_tracker import (
 
 def main():
     pygame.init()
-    cap = setup_camera()
+    #cap = setup_camera()
 
     if LOCAL_TEST:
         screen = pygame.display.set_mode((HUD_WIDTH, HUD_HEIGHT))
@@ -72,7 +72,8 @@ def main():
         if screen_index == 1:
             draw_default_hud(screen, hud_assets, hud_fonts)
         elif screen_index == 2:
-            draw_thermal_hud(cap,screen)
+            draw_blank(screen)
+            #draw_thermal_hud(cap,screen)
         elif screen_index == 3:
             draw_blank(screen)
         else:
