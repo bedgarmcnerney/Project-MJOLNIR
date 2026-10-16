@@ -74,9 +74,8 @@ Four planned weapon subsystems, still in the conceptual planning phase:
 
 ```
 CODE/Arduino/suit_controller/   Arduino firmware (C++)
-CODE/Arduino/libraries/         Third-party Arduino libraries (see Dependencies)
 CODE/Python/MJOLNIR/            HUD and wrist display software (Python)
-BoM.xlsx                        Bill of materials
+BOM.md                          Bill of materials
 ```
 
 ## Hardware
@@ -107,7 +106,7 @@ The I2C sensors share the Arduino's I2C bus.
 | Backlight (PWM) | 18 |
 | SPI | SPI0 (CE0), 40 MHz |
 
-The full parts list is in `BoM.xlsx`.
+The full parts list is in [BOM.md](BOM.md).
 
 ## Dependencies
 
